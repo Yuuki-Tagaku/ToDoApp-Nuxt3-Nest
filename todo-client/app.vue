@@ -91,7 +91,12 @@ const completeTask = async (taskId: string) => {
         />
         <VBtn @click="addTask" class="add-btn" color="success">Add</VBtn>
       </div>
-      <h2 class="sub-title">Added Tasks</h2>
+      <h2
+        class="sub-title"
+        v-if="taskNameList.some((item) => item.done === false)"
+      >
+        Added Tasks
+      </h2>
       <ul>
         <li v-for="task in taskNameList" :key="task.id">
           <div v-if="!task.done">
